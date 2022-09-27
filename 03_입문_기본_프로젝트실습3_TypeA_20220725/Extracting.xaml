@@ -1,0 +1,226 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Extracting" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="In_Str_Column" Type="InArgument(sd:DataRow)" />
+    <x:Property Name="IO_DT_BuildCloseBusinessList" Type="InOutArgument(sd:DataTable)" />
+    <x:Property Name="IO_DT_BuildBusinessList" Type="InOutArgument(sd:DataTable)" />
+    <x:Property Name="In_Int_ExtractingCount" Type="InArgument(x:Int32)" />
+    <x:Property Name="In_Str_IdNum" Type="InArgument(x:String)" />
+    <x:Property Name="In_Str_Status" Type="InArgument(x:String)" />
+    <x:Property Name="In_Str_Data" Type="InArgument(x:String)" />
+    <x:Property Name="In_Str_CloseData" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1637.6,2219.2</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Extracting_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Reflection</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Extracting" sap:VirtualizedContainerService.HintSize="840.8,2154.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe 국세청'" sap:VirtualizedContainerService.HintSize="799.2,2061.6" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="d8f2161c19365c99215b9910f3c41979" Selector="&lt;html app='chrome.exe' title='국세청 홈택스 - 조회/발급 &amp;gt; 사업자상태 &amp;gt; 사업자등록번호로 조회' /&gt;">
+      <ui:BrowserScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="765.6,1914.4" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="724,22.4" sap2010:WorkflowViewState.IdRef="Delay_1" />
+            <ui:TypeInto AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" ClickBeforeTyping="True" DisplayName="Type Into 'INPUT  bsno'" EmptyField="True" sap:VirtualizedContainerService.HintSize="724,135.2" sap2010:WorkflowViewState.IdRef="TypeInto_1" SimulateType="True" Text="[In_Str_Column.item(&quot;사업자등록번호&quot;).ToString.Trim]">
+              <ui:TypeInto.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="14f71d88-45e3-483d-9edc-8b0b396aa563" InformativeScreenshot="18cdf34c06664fb757b1b9764d480b28" Selector="&lt;webctrl id='txppIframe' tag='IFRAME' /&gt;&lt;webctrl tag='INPUT' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:TypeInto.Target>
+            </ui:TypeInto>
+            <Delay Duration="00:00:02" sap:VirtualizedContainerService.HintSize="724,22.4" sap2010:WorkflowViewState.IdRef="Delay_2" />
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="조회하기 클릭" sap:VirtualizedContainerService.HintSize="724,107.2" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b33b2e06-a608-4f74-9986-e4814053b8bb" InformativeScreenshot="d722fdd1b6150e01ee4a630af5c6912b" Selector="&lt;webctrl id='txppIframe' tag='IFRAME' /&gt;&lt;webctrl tag='INPUT' type='button' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+            <Delay Duration="00:00:01" sap:VirtualizedContainerService.HintSize="724,22.4" sap2010:WorkflowViewState.IdRef="Delay_3" />
+            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="사업자등록번호 텍스트 추출 &gt; Str_IdNum" sap:VirtualizedContainerService.HintSize="724,107.2" sap2010:WorkflowViewState.IdRef="GetValue_1">
+              <ui:GetValue.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="545405d1-be4b-4c50-a6f2-26c6744b5a1c" InformativeScreenshot="467b1c21f3569d2001359e1c4282cb1c" Selector="&lt;webctrl id='txppIframe' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='SPAN' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:GetValue.Target>
+              <ui:GetValue.Value>
+                <OutArgument x:TypeArguments="x:String">[In_Str_IdNum]</OutArgument>
+              </ui:GetValue.Value>
+            </ui:GetValue>
+            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="사업자등록상태 텍스트 추출 &gt; Str_Status" sap:VirtualizedContainerService.HintSize="724,107.2" sap2010:WorkflowViewState.IdRef="GetValue_2">
+              <ui:GetValue.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="545405d1-be4b-4c50-a6f2-26c6744b5a1c" InformativeScreenshot="e0da8094954e707f46daf9ab90b8c1f4" Selector="&lt;webctrl id='txppIframe' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl parentid='grid2_cell_0_1' tableRow='2' tag='SPAN' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:GetValue.Target>
+              <ui:GetValue.Value>
+                <OutArgument x:TypeArguments="x:String">[In_Str_Status]</OutArgument>
+              </ui:GetValue.Value>
+            </ui:GetValue>
+            <ui:GetValue ContinueOnError="{x:Null}" DisplayName="조회기준 날짜 텍스트 추출 &gt; Str_Data" sap:VirtualizedContainerService.HintSize="724,107.2" sap2010:WorkflowViewState.IdRef="GetValue_3">
+              <ui:GetValue.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="545405d1-be4b-4c50-a6f2-26c6744b5a1c" InformativeScreenshot="3b3c7da8c492eab6574da886ba669ae7" Selector="&lt;webctrl id='txppIframe' tag='IFRAME' /&gt;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl parentid='grid2_cell_0_2' tableRow='2' tag='SPAN' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:GetValue.Target>
+              <ui:GetValue.Value>
+                <OutArgument x:TypeArguments="x:String">[In_Str_Data]</OutArgument>
+              </ui:GetValue.Value>
+            </ui:GetValue>
+            <If Condition="[In_Str_Status.ToString.Contains(&quot;폐업자&quot;)]" DisplayName="데이터 추출" sap:VirtualizedContainerService.HintSize="724,540" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <Sequence DisplayName="폐업자 걸러내기" sap:VirtualizedContainerService.HintSize="375.2,380.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[In_Str_CloseData]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[In_Str_Status.ToString.Split(":"c)(1).Substring(0,10)]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{In_Str_IdNum.Replace(&quot;-&quot;,&quot;&quot;).ToString.Trim, In_Str_Status.ToString.Trim, In_Str_CloseData ,In_Str_Data.ToString.Trim}]" DataTable="[IO_DT_BuildCloseBusinessList]" DisplayName="폐업자 테이블" sap:VirtualizedContainerService.HintSize="333.6,188" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="전체 사업자등록상태만 걸러내기" sap:VirtualizedContainerService.HintSize="304.8,152.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap:VirtualizedContainerService.HintSize="263.2,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[In_Str_CloseData]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[Nothing]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </If.Else>
+            </If>
+            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{In_Str_IdNum.Replace(&quot;-&quot;,&quot;&quot;).ToString.Trim, In_Str_Status.ToString.Trim, In_Str_CloseData ,In_Str_Data.ToString.Trim}]" DataTable="[IO_DT_BuildBusinessList]" DisplayName="전체 사업자 테이블" sap:VirtualizedContainerService.HintSize="724,188" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="724,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="Extracting: Partially Completed" />
+          </Sequence>
+        </ActivityAction>
+      </ui:BrowserScope.Body>
+    </ui:BrowserScope>
+  </Sequence>
+</Activity>
